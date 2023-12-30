@@ -33,44 +33,6 @@ class Dashboard extends StatelessWidget {
                 ],
               ),
             ),
-            Expanded(
-              flex: 3,
-              child: Column(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.symmetric(
-                      vertical: 20,
-                      horizontal: 50,
-                    ),
-                    child: const TextField(
-                      decoration: InputDecoration(
-                        labelText: 'Enter username',
-                        border: OutlineInputBorder(),
-                      ),
-                      style: TextStyle(
-                        fontSize: 20,
-                        height: 1,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(
-                      vertical: 20,
-                      horizontal: 50,
-                    ),
-                    child: const TextField(
-                      decoration: InputDecoration(
-                          labelText: 'Enter password',
-                          border: OutlineInputBorder()),
-                      style: TextStyle(
-                        fontSize: 20,
-                        height: 1,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
           ],
         ),
       ),

@@ -1,8 +1,31 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:instaglide/pages/Signup.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  // const Login({super.key});
+
+  void _openSignup() {
+    // print('sign up');
+    try {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Signup()),
+      );
+    } catch (e) {
+      if (kDebugMode) {
+        print('Exception : $e');
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,32 +36,37 @@ class Login extends StatelessWidget {
     // );
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFFF3E0),
-      appBar: AppBar(
-        leading: null,
-      ),
+      backgroundColor: const Color(0xFFFAF8EB),
+      // appBar: AppBar(
+      //   leading: null,
+      // ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
             flex: 1,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const Text(
-                  'Login',
-                  style: TextStyle(
-                      color: Colors.green,
-                      fontSize: 35,
-                      fontFamily: 'Grandstander',
-                      fontWeight: FontWeight.bold),
-                ),
-                SvgPicture.asset(
-                  "assets/icons/leaf.svg",
-                  width: 60,
-                  height: 60,
-                ),
-              ],
+            child: Container(
+              margin: const EdgeInsets.symmetric(
+                vertical: 10,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const Text(
+                    'Login',
+                    style: TextStyle(
+                        color: Colors.green,
+                        fontSize: 35,
+                        fontFamily: 'Grandstander',
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SvgPicture.asset(
+                    "assets/icons/leaf.svg",
+                    width: 60,
+                    height: 60,
+                  ),
+                ],
+              ),
             ),
           ),
           SingleChildScrollView(
@@ -143,7 +171,7 @@ class Login extends StatelessWidget {
             flex: 1,
             child: SingleChildScrollView(
               child: Container(
-                alignment: Alignment.topCenter,
+                alignment: Alignment.bottomCenter,
                 margin: const EdgeInsets.symmetric(
                   horizontal: 5,
                 ),
@@ -224,9 +252,9 @@ class Login extends StatelessWidget {
                               // style: TextButton.styleFrom(
                               //   backgroundColor: Colors.green
                               // ),
-                              onPressed: () {},
+                              onPressed: _openSignup,
                               child: const Text(
-                                'Sign in',
+                                'Sign up',
                                 style: TextStyle(
                                   fontFamily: 'Montserrat',
                                   fontSize: 18,
