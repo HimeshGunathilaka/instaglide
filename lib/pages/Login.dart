@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -9,9 +8,9 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    ThemeData(
-      focusColor: Colors.green,
-    );
+    // ThemeData(
+    //   focusColor: Colors.green,
+    // );
 
     return Scaffold(
       backgroundColor: const Color(0xFFFFF3E0),
@@ -48,16 +47,22 @@ class Login extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    margin: const EdgeInsets.symmetric(
-                      vertical: 20,
-                      horizontal: 50,
+                    margin: const EdgeInsets.only(
+                      top: 10,
+                      left: 50,
+                      right: 50,
                     ),
                     child: SizedBox(
                       height: 60,
                       child: TextField(
-                        focusNode: FocusNode(),
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           labelText: 'Enter username',
+                          floatingLabelStyle: TextStyle(
+                            color: FocusScope.of(context).hasFocus
+                                ? Colors.green
+                                : Colors.grey,
+                          ),
+                          // errorText: 'Username is required',
                         ),
                         style: const TextStyle(
                           fontSize: 20,
@@ -72,17 +77,28 @@ class Login extends StatelessWidget {
                     // padding: EdgeInsets.symmetric(
                     //   vertical: 10,
                     // ),
-                    margin: const EdgeInsets.symmetric(
-                      vertical: 20,
-                      horizontal: 50,
+                    margin: const EdgeInsets.only(
+                      top: 40,
+                      bottom: 20,
+                      left: 50,
+                      right: 50,
                     ),
-                    child: const SizedBox(
+                    child: SizedBox(
                       height: 60,
                       child: TextField(
                         decoration: InputDecoration(
                           labelText: 'Enter password',
+                          floatingLabelStyle: TextStyle(
+                            color: FocusScope.of(context).hasFocus
+                                ? Colors.green
+                                : Colors.grey,
+                          ),
+                          // labelStyle: TextStyle(
+                          //   color: Colors.green,
+                          // ),
+                          // errorText: 'Password is required',
                         ),
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 20,
                           // height: 1,
                           fontFamily: 'Montserrat',
@@ -127,9 +143,6 @@ class Login extends StatelessWidget {
             flex: 1,
             child: SingleChildScrollView(
               child: Container(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 20,
-                ),
                 alignment: Alignment.topCenter,
                 margin: const EdgeInsets.symmetric(
                   horizontal: 5,
@@ -138,17 +151,20 @@ class Login extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      'Or login with',
+                      'OR login with',
                       style: TextStyle(
                         fontFamily: 'Montserrat',
-                        fontSize: 20,
+                        fontSize: 18,
                         fontWeight: FontWeight.w500,
                         color: Colors.black54,
                       ),
                     ),
                     Container(
-                      margin: const EdgeInsets.symmetric(
-                        vertical: 40,
+                      // padding: EdgeInsets.symmetric(
+                      //   horizontal: 50,
+                      // ),
+                      margin: const EdgeInsets.only(
+                        top: 20,
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -182,7 +198,47 @@ class Login extends StatelessWidget {
                           ),
                         ],
                       ),
-                    )
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(
+                        top: 20,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            "Don't have an account ?",
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black54,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(
+                              left: 10,
+                            ),
+                            child: TextButton(
+                              // style: TextButton.styleFrom(
+                              //   backgroundColor: Colors.green
+                              // ),
+                              onPressed: () {},
+                              child: const Text(
+                                'Sign in',
+                                style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.green,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
